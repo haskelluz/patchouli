@@ -3,8 +3,6 @@ name:            telegram-assistant
 version:         0.0.0.0
 license:         BSD-3-Clause
 license-file:    LICENSE
-author:          thelissimus
-maintainer:      thelissimus@tuta.io
 build-type:      Simple
 extra-doc-files: CHANGELOG.md
 
@@ -15,22 +13,20 @@ common warnings
     -Wno-missing-local-signatures -Wno-missing-import-lists -haddock
 
 common defaults
-  default-language:   GHC2021
-  default-extensions:
-    BlockArguments
-    DerivingStrategies
+  default-language:   GHC2024
+  default-extensions: BlockArguments
 
 library
   import:          warnings, defaults
   exposed-modules: Assistant
   build-depends:
-    , base                 >=4.7   && <5
+    , base
     , effectful
     , effectful-th
     , exceptions
     , hackage-db
     , hoogle
-    , telegram-bot-api     ==7.4.4
+    , telegram-bot-api
     , telegram-bot-simple
     , text
 
@@ -40,7 +36,7 @@ executable telegram-assistant
   import:         warnings, defaults
   main-is:        Main.hs
   build-depends:
-    , base                >=4.7 && <5
+    , base
     , telegram-assistant
 
   hs-source-dirs: app
